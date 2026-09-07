@@ -272,7 +272,7 @@ p { margin: 0; }
   animation: driftBack 22s ease-in-out infinite alternate;
 }
 .hero__layer--mid {
-  background-image: url("images/hero.jpg");
+  background-image: url("../images/hero.jpg");
   opacity: 0.4;
   filter: saturate(0.75) contrast(1.05);
   mix-blend-mode: luminosity;
