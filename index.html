@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISIONS — Experiencias de viaje y fotografía</title>
+<meta name="description" content="VISIONS diseña viajes fotográficos a medida por los rincones más extraordinarios del planeta.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,560;1,9..144,420&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Barra de progreso de scroll -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Navegación -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner container">
+      <a href="#inicio" class="navbar__brand">VISIONS</a>
+
+      <nav class="navbar__nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#destinos">Destinos</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto" class="navbar__cta magnetic">Reserva tu viaje</a></li>
+        </ul>
+      </nav>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="nav-mobile" id="navMobile" aria-label="Navegación móvil">
+      <a href="#destinos">Destinos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Reserva tu viaje</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="hero__layer hero__layer--back" data-parallax="0.02"></div>
+      <div class="hero__layer hero__layer--mid" data-parallax="0.05"></div>
+      <div class="hero__spotlight" id="heroSpotlight" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+
+      <div class="hero__content container">
+        <p class="hero__eyebrow" data-split="words">Fotografía · Aventura · Rincones remotos</p>
+        <h1 class="hero__title" data-split="words">
+          El mundo tiene historias. Nosotros te llevamos a fotografiarlas.
+        </h1>
+        <p class="hero__subtitle" data-fade-in>
+          Viajes fotográficos diseñados a medida, guiados por profesionales que conocen
+          cada luz, cada sendero y cada momento en el que el paisaje se convierte en recuerdo.
+        </p>
+        <div class="hero__actions" data-fade-in>
+          <a href="#destinos" class="btn btn--primary magnetic">Explorar destinos</a>
+          <a href="#contacto" class="btn btn--ghost magnetic">Habla con nosotros</a>
+        </div>
+      </div>
+
+      <a href="#estadisticas" class="hero__scroll" aria-label="Bajar a la siguiente sección">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- Estadísticas / contadores -->
+    <section class="stats" id="estadisticas">
+      <div class="container stats__grid">
+        <div class="stat reveal">
+          <span class="stat__number" data-count="47">0</span><span class="stat__suffix">+</span>
+          <p class="stat__label">Países recorridos</p>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__number" data-count="12400">0</span><span class="stat__suffix">+</span>
+          <p class="stat__label">Viajeros guiados</p>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__number" data-count="15">0</span>
+          <p class="stat__label">Años de experiencia</p>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__number" data-count="4.9" data-decimal="1">0</span>
+          <p class="stat__label">Valoración media</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinos -->
+    <section class="destinos" id="destinos">
+      <div class="container">
+        <p class="section__eyebrow reveal" data-split="words">Destinos seleccionados</p>
+        <h2 class="section__title reveal" data-split="words">Cada ruta, una historia distinta</h2>
+
+        <div class="destinos__grid">
+          <article class="destino reveal destino--tall">
+            <div class="destino__frame" data-parallax-scroll="0.08">
+              <img class="destino__img" data-src="images/islandia.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='1200'%3E%3Crect width='100%25' height='100%25' fill='%23151515'/%3E%3C/svg%3E" alt="Auroras y glaciares en Islandia" width="900" height="1200" loading="lazy">
+            </div>
+            <div class="destino__overlay">
+              <h3>Islandia</h3>
+              <p>Auroras, glaciares y costas de vértigo</p>
+            </div>
+          </article>
+
+          <article class="destino reveal">
+            <div class="destino__frame" data-parallax-scroll="0.05">
+              <img class="destino__img" data-src="images/patagonia.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='700'%3E%3Crect width='100%25' height='100%25' fill='%23151515'/%3E%3C/svg%3E" alt="Montañas de la Patagonia" width="900" height="700" loading="lazy">
+            </div>
+            <div class="destino__overlay">
+              <h3>Patagonia</h3>
+              <p>Silencio, viento y picos infinitos</p>
+            </div>
+          </article>
+
+          <article class="destino reveal">
+            <div class="destino__frame" data-parallax-scroll="0.05">
+              <img class="destino__img" data-src="images/marruecos.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='700'%3E%3Crect width='100%25' height='100%25' fill='%23151515'/%3E%3C/svg%3E" alt="Desierto y zocos de Marruecos" width="900" height="700" loading="lazy">
+            </div>
+            <div class="destino__overlay">
+              <h3>Marruecos</h3>
+              <p>Dunas doradas y zocos con alma</p>
+            </div>
+          </article>
+
+          <article class="destino reveal destino--tall">
+            <div class="destino__frame" data-parallax-scroll="0.08">
+              <img class="destino__img" data-src="images/japon.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='1200'%3E%3Crect width='100%25' height='100%25' fill='%23151515'/%3E%3C/svg%3E" alt="Templos y bosques de Japón" width="900" height="1200" loading="lazy">
+            </div>
+            <div class="destino__overlay">
+              <h3>Japón</h3>
+              <p>Templos, niebla y bosques de bambú</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencia / filosofía -->
+    <section class="experiencia" id="experiencia">
+      <div class="container experiencia__grid">
+        <div class="experiencia__media reveal">
+          <img data-src="images/fotografo.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='900'%3E%3Crect width='100%25' height='100%25' fill='%23151515'/%3E%3C/svg%3E" alt="Fotógrafo guía preparando una toma al amanecer" loading="lazy">
+        </div>
+        <div class="experiencia__text reveal">
+          <p class="section__eyebrow" data-split="words">Nuestra manera de viajar</p>
+          <h2 class="section__title" data-split="words">No vendemos billetes. Diseñamos miradas.</h2>
+          <p>
+            Cada ruta de VISIONS la construye un fotógrafo que ya ha estado allí:
+            conoce la luz de las cinco de la mañana, el mirador que nadie encuentra
+            solo, y el momento exacto en el que un lugar deja de ser un destino
+            y se convierte en una fotografía que vas a mirar durante años.
+          </p>
+          <ul class="experiencia__list">
+            <li>Grupos reducidos, máximo 8 personas</li>
+            <li>Guía fotográfico profesional en cada ruta</li>
+            <li>Itinerarios pensados para la mejor luz, no para el autobús</li>
+            <li>Equipo de apoyo local en cada destino</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonios" id="testimonios">
+      <div class="container">
+        <p class="section__eyebrow reveal" data-split="words">Lo que cuentan al volver</p>
+        <h2 class="section__title reveal" data-split="words">Historias de quienes ya viajaron con nosotros</h2>
+
+        <div class="testimonios__grid">
+          <blockquote class="testimonio reveal">
+            <p>"Volví con una tarjeta de memoria llena y la sensación de haber visto Islandia de verdad, no desde la ventanilla de un bus."</p>
+            <footer>— Laura M., ruta Islandia</footer>
+          </blockquote>
+          <blockquote class="testimonio reveal">
+            <p>"El guía nos despertó a las 4:30 para una luz que duró diez minutos. Esos diez minutos valieron el viaje entero."</p>
+            <footer>— Diego R., ruta Patagonia</footer>
+          </blockquote>
+          <blockquote class="testimonio reveal">
+            <p>"Grupo pequeño, ritmo humano, cero prisa. Se nota que quien diseña la ruta también sabe sostener una cámara."</p>
+            <footer>— Ana P., ruta Japón</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto / CTA -->
+    <section class="cta" id="contacto">
+      <div class="container cta__inner reveal">
+        <h2 data-split="words">¿Cuál va a ser tu próxima fotografía?</h2>
+        <p>Cuéntanos qué luz buscas y diseñamos la ruta contigo.</p>
+        <form class="cta__form" id="ctaForm" novalidate>
+          <label class="visually-hidden" for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          <button type="submit" class="btn btn--primary magnetic">Quiero mi ruta</button>
+        </form>
+        <p class="cta__note" id="ctaNote" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="navbar__brand">VISIONS</span>
+      <p>&copy; <span id="year"></span> VISIONS. Diseñado y construido como proyecto de portfolio.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
