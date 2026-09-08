@@ -53,10 +53,19 @@ h1, h2, h3 {
 p { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Antes esto ponía transition-duration:0.001ms en TODO el sitio.
+     Muchos portátiles con Windows tienen la animación del sistema
+     desactivada (ahorro de batería / accesibilidad), lo que hace que
+     el navegador reporte "reduced motion" aunque el usuario no lo haya
+     pedido a propósito — y con la regla anterior, los fade-in al hacer
+     scroll pasaban de 0.9s a instantáneos, dando la sensación de que
+     "no cargan". Lo correcto es solo apagar el movimiento continuo/
+     decorativo (parallax, drift), no los fundidos puntuales de la UI. */
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    transition-duration: 0.001ms !important;
+  .hero__layer--back,
+  .hero__layer--mid,
+  .hero__scroll span {
+    animation: none !important;
   }
 }
 
@@ -455,21 +464,24 @@ section { padding: 110px 0; }
 }
 
 /* ---------- Destinos ---------- */
+/* Composición "bonsái editorial": dos columnas altas a los lados y dos
+   tarjetas apiladas en el centro. Se define con posiciones explícitas
+   (no con grid-auto-flow) para que encaje siempre sin huecos, sea cual
+   sea el ancho de pantalla — el problema anterior era un grid de 4
+   columnas con alturas de fila que no sumaban lo mismo por columna. */
 .destinos__grid {
   margin-top: 48px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 220px;
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 .destino {
   position: relative;
-  grid-row: span 2;
+  height: 320px;
   border-radius: 14px;
   overflow: hidden;
   isolation: isolate;
 }
-.destino--tall { grid-row: span 3; }
 .destino__frame {
   position: absolute;
   inset: -6% -6%;
@@ -512,12 +524,23 @@ section { padding: 110px 0; }
 .destino:hover .destino__overlay p { opacity: 1; transform: translateY(0); }
 .destino:hover .destino__overlay { background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 75%, transparent 100%); }
 
-@media (max-width: 960px) {
+@media (min-width: 561px) and (max-width: 960px) {
   .destinos__grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 560px) {
-  .destinos__grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
-  .destino, .destino--tall { grid-row: span 1; }
+
+/* A partir de aquí hay espacio para el diseño "bonsái": dos columnas
+   altas a los lados (Islandia, Japón) y dos tarjetas apiladas en el
+   centro (Patagonia, Marruecos), todas terminando a la misma altura. */
+@media (min-width: 961px) {
+  .destinos__grid {
+    grid-template-columns: 1.1fr 1fr 1.1fr;
+    grid-template-rows: repeat(2, 220px);
+  }
+  .destino { height: auto; }
+  .destino:nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
+  .destino:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .destino:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .destino:nth-child(4) { grid-column: 3; grid-row: 1 / span 2; }
 }
 
 /* ---------- Experiencia ---------- */
@@ -578,6 +601,11 @@ section { padding: 110px 0; }
   transform: translateY(-8px);
   border-color: rgba(240, 184, 128, 0.35);
   box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+  /* El stagger de la aparición (transition-delay más abajo) se hereda
+     para TODAS las transiciones del elemento, incluida esta del hover.
+     Sin este reset, la tarjeta 3ª/4ª tarda 220-330ms de más en reaccionar
+     al pasar el ratón — se siente con mucho delay. */
+  transition-delay: 0s;
 }
 .testimonio p { font-family: var(--font-display); font-weight: 420; font-size: 1.05rem; margin-bottom: 20px; }
 .testimonio footer { color: var(--color-text-muted); font-size: 0.85rem; }
